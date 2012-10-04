@@ -3,6 +3,14 @@ It utilises the ITemplateRenderer interface exposed by FluentEmail to hook in [c
 
 Markdown rendering is provided by the [Markdown Razor view engine](https://github.com/ServiceStack/ServiceStack/wiki/Markdown-Razor) that is built into [ServiceStack](https://github.com/ServiceStack/ServiceStack) and supports full model binding as available in the default Razor renderer.
 
+#### Installation
+
+Available on [NuGet](http://nuget.org/packages/FluentEmail.Markdown):
+
+```
+PM> Install-Package FluentEmail.Markdown
+```
+
 #### Example Usage
 
 ```csharp
