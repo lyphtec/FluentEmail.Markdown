@@ -15,7 +15,7 @@
     <tags>lyphtec fluentemail markdown system.net.mail</tags>
     <projectUrl>https://github.com/lyphtec/FluentEmail.Markdown</projectUrl>
     <language>en-AU</language>
-    <copyright>Copyright © 2012. LyphTEC (lyphtec@gmail.com)</copyright>
+    <copyright>Copyright © 2012-2013. LyphTEC (lyphtec@gmail.com)</copyright>
     <dependencies>
       <dependency id="fluent-email" />
       <dependency id="ServiceStack" />

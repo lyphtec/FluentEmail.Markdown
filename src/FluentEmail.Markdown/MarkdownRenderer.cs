@@ -10,22 +10,9 @@ namespace FluentEmail.Markdown
     /// </summary>
     public class MarkdownRenderer : ITemplateRenderer
     {
-        /// <summary>
-        /// Instantiates a new instance of the Markdown renderer
-        /// </summary>
-        public MarkdownRenderer()
-        {
-            RenderHtml = true;
-        }
-
-        /// <summary>
-        /// Indicate whether or not to render the output has Html. Default is true.
-        /// </summary>
-        public bool RenderHtml { get; set; }
-        
         private static readonly object SyncLock = new object();
 
-        public string Parse<TModel>(string markdownTemplate, TModel model)
+        public string Parse<TModel>(string markdownTemplate, TModel model, bool isHtml = true)
         {
             if (string.IsNullOrWhiteSpace(markdownTemplate))
                 return string.Empty;
@@ -52,7 +39,7 @@ namespace FluentEmail.Markdown
             // attach view model
             var scopeArgs = new Dictionary<string, object> { { MarkdownPage.ModelName, model } };
 
-            var result = mdFormat.RenderDynamicPage(mdPage, scopeArgs, this.RenderHtml, false);
+            var result = mdFormat.RenderDynamicPage(mdPage, scopeArgs, isHtml, false);
 
             // clean up temp file
             fi.Delete();

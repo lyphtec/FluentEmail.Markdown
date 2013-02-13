@@ -3,7 +3,7 @@ It utilises the ITemplateRenderer interface exposed by FluentEmail to hook in [c
 
 Markdown rendering is provided by the [Markdown Razor view engine](https://github.com/ServiceStack/ServiceStack/wiki/Markdown-Razor) that is built into [ServiceStack](https://github.com/ServiceStack/ServiceStack) and supports full model binding as available in the default Razor renderer.
 
-#### Installation
+### Installation
 
 Available on [NuGet](http://nuget.org/packages/FluentEmail.Markdown):
 
@@ -11,14 +11,27 @@ Available on [NuGet](http://nuget.org/packages/FluentEmail.Markdown):
 PM> Install-Package FluentEmail.Markdown
 ```
 
-#### Example Usage
+### Example Usage
 
 ```csharp
 var email = Email
     .From("bob@hotmail.com")
     .To("somedude@gmail.com")
     .Subject("woo nuget")
-	.UsingTemplateEngine(new MarkdownRenderer())
+    .UsingTemplateEngine(new MarkdownRenderer())   // Hook in this renderer -- IMPORTANT!!: This needs be set before the next line below
+    .UsingTemplateFromFile(@"~/test.md", new { Name = "John Smith", Numbers = new string[] { "1", "2", "3" } });
+
+
+// You can also set the default renderer so all Email instances will use this renderer by doing the following:
+
+// Set global renderer to use (usually in App init):
+Email.DefaultRenderer = new MarkdownRenderer();
+
+// Use FluentEmail without the need to call UsingTemplateEngine() each time
+var email = Email
+    .From("bob@hotmail.com")
+    .To("somedude@gmail.com")
+    .Subject("woo nuget")
     .UsingTemplateFromFile(@"~/test.md", new { Name = "John Smith", Numbers = new string[] { "1", "2", "3" } });
 ```
 
@@ -47,7 +60,7 @@ Numbers:
 The current date is: @DateTime.Now
 ```
 
-This will be the rendered output (Message.Body):
+This will be the rendered output (the Message.Body):
 
 ```html
 <h1>Heading 1</h1>
@@ -74,4 +87,3 @@ This will be the rendered output (Message.Body):
 
 <p>The current date is: 04/10/2012 10:52:33 PM</p>
 ```
-
