@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("LyphTEC")]
 [assembly: AssemblyProduct("FluentEmail.Markdown")]
-[assembly: AssemblyCopyright("Copyright © 2012. LyphTEC (lyphtec@gmail.com)")]
+[assembly: AssemblyCopyright("Copyright © 2012-2014. LyphTEC (lyphtec@gmail.com)")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -32,6 +32,6 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.1.0")]    // using http://semver.org
-[assembly: AssemblyInformationalVersion("1.1.0")]   // NuGet will use this first for version info.. we want to keep the 3 digit format common to SemVer
-[assembly: AssemblyFileVersion("1.1.0")]
+[assembly: AssemblyVersion("1.2.0")]    // using http://semver.org
+[assembly: AssemblyInformationalVersion("1.2.0")]   // NuGet will use this first for version info.. we want to keep the 3 digit format common to SemVer
+[assembly: AssemblyFileVersion("1.2.0")]
