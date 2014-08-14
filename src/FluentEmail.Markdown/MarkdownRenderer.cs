@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
-using ServiceStack.WebHost.Endpoints.Formats;
-using ServiceStack.WebHost.Endpoints.Support.Markdown;
+using ServiceStack.Formats;
+using ServiceStack.Support.Markdown;
 
 namespace FluentEmail.Markdown
 {
