@@ -12,8 +12,8 @@ Name: @Model.Name
 
 Numbers:
 
-@foreach n in Model.Capitals {
-- @n.Key : @n.Value 
+@foreach (var n in Model.Capitals) {
+@: - @n.Key : @n.Value 
 }
 
 Do cool stuff like get the current date: @DateTime.Now

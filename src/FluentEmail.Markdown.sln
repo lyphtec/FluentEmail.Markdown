@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentEmail.Markdown", "FluentEmail.Markdown\FluentEmail.Markdown.csproj", "{12EBF14A-4669-4F6A-930B-9436343A1F12}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{F794BB2B-9DD9-4FAE-B056-B90042C26094}"
@@ -16,6 +18,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{B735EDF1
 	ProjectSection(SolutionItems) = preProject
 		build.cmd = build.cmd
 		build.proj = build.proj
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{D0ABCFF3-65A4-4378-AA28-B354692522C6}"
+	ProjectSection(SolutionItems) = preProject
+		Common\CommonAssemblyInfo.cs = Common\CommonAssemblyInfo.cs
 	EndProjectSection
 EndProject
 Global

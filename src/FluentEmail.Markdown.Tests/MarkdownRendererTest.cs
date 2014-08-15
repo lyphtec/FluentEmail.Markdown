@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace FluentEmail.Markdown.Tests
@@ -37,8 +35,8 @@ namespace FluentEmail.Markdown.Tests
             var sb = new StringBuilder();
             sb.AppendLine("# Hello @Model.Name");
             sb.AppendLine();
-            sb.AppendLine("@foreach n in Model.Numbers {");
-            sb.AppendLine("- @n");
+            sb.AppendLine("@foreach (var n in Model.Numbers) {");
+            sb.AppendLine("@: - @n");
             sb.AppendLine("}");
             sb.AppendLine();
             

@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
-using ServiceStack.Formats;
-using ServiceStack.Support.Markdown;
+using RazorEngine;
+using MD = MarkdownDeep.Markdown;
 
 namespace FluentEmail.Markdown
 {
@@ -10,41 +11,22 @@ namespace FluentEmail.Markdown
     /// </summary>
     public class MarkdownRenderer : ITemplateRenderer
     {
-        private static readonly object SyncLock = new object();
-
         public string Parse<TModel>(string markdownTemplate, TModel model, bool isHtml = true)
         {
             if (string.IsNullOrWhiteSpace(markdownTemplate))
                 return string.Empty;
 
-            var file = Path.GetTempFileName();
+            var rzOut = Razor.Parse(markdownTemplate, model, markdownTemplate.GetHashCode().ToString(CultureInfo.InvariantCulture));
 
-            lock (SyncLock)
+            if (!isHtml) return rzOut;
+
+            var md = new MD
             {
-                File.WriteAllText(file, markdownTemplate);
-            }
+                ExtraMode = true,
+                SafeMode = false
+            };
 
-            var fi = new FileInfo(file);
-            if (fi.Length == 0)
-            {
-                fi.Delete();
-                return string.Empty;
-            }
-
-            var mdFormat = new MarkdownFormat();
-            var mdPage = new MarkdownPage(mdFormat, file, "_markdown_", markdownTemplate);
-
-            mdFormat.AddPage(mdPage);
-
-            // attach view model
-            var scopeArgs = new Dictionary<string, object> { { MarkdownPage.ModelName, model } };
-
-            var result = mdFormat.RenderDynamicPage(mdPage, scopeArgs, isHtml, false);
-
-            // clean up temp file
-            fi.Delete();
-
-            return result;
+            return md.Transform(rzOut);
         }
     }
 }

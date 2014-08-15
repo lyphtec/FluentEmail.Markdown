@@ -10,7 +10,7 @@
     <summary>$description$</summary>
     <description>
       Provides Markdown template support to FluentEmail (https://github.com/lukencode/FluentEmail).
-      More information about custom template renderers support in FluentEmail can be found at http://lukencode.com/2012/06/10/fluent-email-now-supporting-custom-template-renderers/.
+      This enables you to create email templates using Markdown text files and supports full model binding useful in mail merge scenarios.
     </description>
     <tags>lyphtec fluentemail markdown system.net.mail</tags>
     <projectUrl>https://github.com/lyphtec/FluentEmail.Markdown</projectUrl>

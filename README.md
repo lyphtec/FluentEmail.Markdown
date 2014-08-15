@@ -1,7 +1,7 @@
 ﻿This is a Markdown custom template renderer for [FluentEmail](https://github.com/lukencode/FluentEmail)   
-It utilises the ITemplateRenderer interface exposed by FluentEmail to hook in [custom template renderers](http://lukencode.com/2012/06/10/fluent-email-now-supporting-custom-template-renderers/)
+It utilises the ITemplateRenderer interface exposed by FluentEmail to hook in [custom template renderers](http://lukencode.com/2012/06/10/fluent-email-now-supporting-custom-template-renderers/) and supports full model binding as available in the default Razor renderer.
 
-Markdown rendering is provided by the [Markdown Razor view engine](https://github.com/ServiceStack/ServiceStack/wiki/Markdown-Razor) that is built into [ServiceStack](https://github.com/ServiceStack/ServiceStack) and supports full model binding as available in the default Razor renderer.
+Markdown parsing is done by [MarkdownDeep](http://www.toptensoftware.com/markdowndeep/)
 
 ### Installation
 
@@ -53,8 +53,8 @@ Name: @Model.Name
 
 Numbers:
 
-@foreach i in Model.Numbers {
-- Number: @i 
+@foreach (i in Model.Numbers) {
+@: - Number: @i 
 }
 
 The current date is: @DateTime.Now
@@ -85,5 +85,7 @@ This will be the rendered output (the Message.Body):
 <li>Number: 3 </li>
 </ul>
 
-<p>The current date is: 04/10/2012 10:52:33 PM</p>
+<p>The current date is: 04/08/2014 10:52:33 PM</p>
 ```
+
+Note the @foreach syntax above.  It follows standard [Razor conventions](http://stackoverflow.com/questions/4463000/razor-syntax-foreach-loop). This renderer actually does a Razor parse on the raw template text first to resolve all model bindings, then depending on the `isHtml` flag, will do the Markdown parsing.
