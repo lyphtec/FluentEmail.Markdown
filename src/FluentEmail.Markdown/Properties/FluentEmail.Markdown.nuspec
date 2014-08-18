@@ -16,9 +16,7 @@
     <projectUrl>https://github.com/lyphtec/FluentEmail.Markdown</projectUrl>
     <language>en-AU</language>
     <copyright>Copyright © 2012-2014. LyphTEC (lyphtec@gmail.com)</copyright>
-    <dependencies>
-      <dependency id="fluent-email" />
-      <dependency id="ServiceStack" />
+    <dependencies>      
     </dependencies>
   </metadata>
 </package>

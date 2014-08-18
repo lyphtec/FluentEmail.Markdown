@@ -10,6 +10,6 @@ using System.Runtime.InteropServices;
 
 [assembly: ComVisible(false)]
 
-[assembly: AssemblyVersion("1.3.0")]    // using http://semver.org
-[assembly: AssemblyInformationalVersion("1.3.0")]   // NuGet will use this first for version info.. we want to keep the 3 digit format common to SemVer
-[assembly: AssemblyFileVersion("1.3.0")]
+[assembly: AssemblyVersion("1.3.1")]    // using http://semver.org
+[assembly: AssemblyInformationalVersion("1.3.1")]   // NuGet will use this first for version info.. we want to keep the 3 digit format common to SemVer
+[assembly: AssemblyFileVersion("1.3.1")]
